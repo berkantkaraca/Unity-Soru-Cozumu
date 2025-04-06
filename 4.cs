@@ -14,10 +14,7 @@ public class CubeScaler : MonoBehaviour
     void Update()
     {
         float mouseY = Input.GetAxis("Mouse Y") * scaleSpeed * Time.deltaTime;
-        
         Vector3 newScale = transform.localScale + Vector3.one * mouseY;
-        newScale = Vector3.Max(newScale, Vector3.zero);
-        
-        transform.localScale = newScale;
+        transform.localScale = Vector3.Max(newScale, Vector3.zero);
     }
 }

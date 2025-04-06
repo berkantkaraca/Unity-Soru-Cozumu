@@ -10,8 +10,6 @@ public class CubeMover : MonoBehaviour
     
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X");
-        float deltaX = mouseX * moveSpeed * Time.deltaTime;
-        transform.position += new Vector3(deltaX, 0, 0);
+        transform.position += new Vector3(Input.GetAxis("Mouse X") * moveSpeed * Time.deltaTime, 0, 0);
     }
 }

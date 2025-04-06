@@ -7,12 +7,11 @@ public class CubeRotator : MonoBehaviour
 {
     [SerializeField] float _dh=5.0f;
     Transform _player;
-    //CharacterController _controller;
+
     void Start()
     {
-         GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
         _player = playerGameObject.transform;
-        _controller = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -20,12 +19,7 @@ public class CubeRotator : MonoBehaviour
         Vector3 direction = _player.position - transform.position; 
         direction.Normalize();
 
-        // Küpü oyuncuya doğru döndür
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _dh);
-
-        // Oyuncuya doğru hareket et
-        //_controller.Move(direction * Time.deltaTime*_dh);
     }
-    
 }
